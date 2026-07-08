@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariama baby</title>
+    <!-- Liaison avec la feuille de style externe -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="Title">Service Central d'Authentification</div>
+    
+    <div class="Container">
+        <form id="loginForm" action="connexion.php" method="POST">
+           <h2>Connexion Sécurisée</h2>
+           
+           <label for="login">Identifiant :</label>
+           <input type="text" id="login" name="login" required autocomplete="off">  
+           
+           <label for="password">Mot de passe :</label>    
+           <input type="password" id="password" name="password" required>
+           
+           <button type="submit" id="submitBtn">Se connecter</button>
+        </form>
+    </div>
+
+    <!-- Liaison avec votre code JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
