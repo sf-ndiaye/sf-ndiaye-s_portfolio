@@ -1,348 +1,289 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Serigne Fallou Ndiaye</title>
+  <title>Portfolio Serigne Ndiaye – Frontend Developer</title>
+  <meta name="description" content="Portfolio de Serigne Ndiaye, étudiant en L3 MIC spécialisé en développement web et multimédia. Découvrez mes projets HTML, CSS, JS, React et GSAP.">
+  <meta name="keywords" content="Frontend Developer, Portfolio, HTML, CSS, JavaScript, React, GSAP, Web Design">
+  <meta name="author" content="Serigne Ndiaye">
   <style>
     html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: Segoe UI, Tahoma, sans-serif;
+  margin: 0;
+  background: linear-gradient(-45deg, #0a0a0a, #111, #222, #0a0a0a);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.5s, color 0.5s;
+}
 
-    body {
-      font-family: Segoe UI, Tahoma, sans-serif;
-      margin: 0;
-      background: linear-gradient(-45deg, #0a0a0a, #111, #222, #0a0a0a);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      transition: background 0.5s, color 0.5s;
-    }
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Mode sombre */
-    body.dark {
+/* Mode sombre inversé */
+body.dark {
   background: linear-gradient(-45deg, #fdfdfd, #f5f5f5, #eaeaea, #fdfdfd);
   color: #222;
 }
+body.dark nav { background-color: rgba(255,255,255,0.9); }
+body.dark nav .logo { color: #0077cc; }
+body.dark nav ul li a { color: #444; }
+body.dark nav ul li a:hover { color: #0077cc; }
+body.dark .hero h1 { color: #0077cc; }
+body.dark .hero p { color: #555; }
+body.dark .hero button { background-color: #0077cc; color: #fff; }
+body.dark .hero button:hover { background-color: #005fa3; }
+body.dark .project { background: rgba(255,255,255,0.8); }
+body.dark .project p { color: #333; }
+body.dark #contact-form input,
+body.dark #contact-form textarea { background: rgba(255,255,255,0.9); color: #222; }
 
-body.dark nav {
-  background-color: rgba(255,255,255,0.9);
+/* Navbar */
+nav {
+  background-color: rgba(0,0,0,0.7);
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav .logo {
+  color: #00ff88;
+  font-size: 22px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+nav ul li { margin-left: 20px; }
+nav ul li a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+nav ul li a:hover { color: #00ff88; }
+nav ul li button {
+  background: none;
+  border: 1px solid #00ff88;
+  color: #00ff88;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+nav ul li button:hover {
+  background: #00ff88;
+  color: #000;
+  transform: scale(1.05);
 }
 
-body.dark nav .logo {
-  color: #0077cc; /* Bleu moderne */
+/* Burger menu */
+.burger { display: none; cursor: pointer; }
+.burger div {
+  width: 25px; height: 3px;
+  background-color: #00ff88;
+  margin: 5px;
+  transition: all 0.3s ease;
 }
 
-body.dark nav ul li a {
-  color: #444;
+/* Hero Section */
+.hero {
+  flex: 1;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+.hero h1 {
+  color: #00ff88;
+  font-size: 48px;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+.hero p {
+  color: #ccc;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.hero button {
+  background-color: #00ff88;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+.hero button:hover {
+  background-color: #00cc66;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0,255,136,0.6);
 }
 
-body.dark nav ul li a:hover {
-  color: #0077cc;
-}
-
-body.dark .hero h1 {
-  color: #0077cc;
-}
-
-body.dark .hero p {
-  color: #555;
-}
-
-body.dark .hero button {
-  background-color: #0077cc;
-  color: #fff;
-}
-
-body.dark .hero button:hover {
-  background-color: #005fa3;
-}
-
-
-    /* Navbar */
-    nav {
-      background-color: rgba(0,0,0,0.7);
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-    }
-
-    nav .logo {
-      color: #00ff88;
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li {
-      margin-left: 20px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #ccc;
-      font-size: 18px;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #00ff88;
-    }
-
-    nav ul li button {
-      background: none;
-      border: 1px solid #00ff88;
-      color: #00ff88;
-      padding: 5px 10px;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    nav ul li button:hover {
-      background: #00ff88;
-      color: #000;
-    }
-
-    /* Hero Section */
-    .hero {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .hero h1 {
-      color: #00ff88;
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      color: #ccc;
-      font-size: 20px;
-      margin-bottom: 20px;
-    }
-
-    .hero button {
-      background-color: #00ff88;
-      border: none;
-      padding: 12px 24px;
-      font-size: 18px;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background-color 0.3s, transform 0.2s;
-    }
-
-    .hero button:hover {
-      background-color: #00cc66;
-      transform: scale(1.05);
-    }
-
-    .projects {
-  padding: 40px;
+/* Projects */
+.projects {
+  padding: 60px 20px;
   text-align: center;
 }
 
 .projects h2 {
   color: var(--accent-color, #00ff88);
   font-size: 36px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .project-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
 }
 
 .project {
   background: rgba(0,0,0,0.6);
-  padding: 20px;
-  border-radius: 10px;
-  width: 280px;
-  transition: transform 0.3s;
-}
-
-body.dark .project {
-  background: rgba(255,255,255,0.8);
+  padding: 25px;
+  border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
 .project:hover {
-  transform: scale(1.05);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,255,136,0.3);
 }
 
 .project h3 {
   color: var(--accent-color, #00ff88);
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 22px;
 }
 
 .project p {
   color: #ccc;
-  margin-bottom: 10px;
-}
-
-body.dark .project p {
-  color: #333;
+  margin-bottom: 15px;
+  font-size: 16px;
 }
 
 .project a {
-  color: var(--accent-color, #00ff88);
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: var(--accent-color, #00ff88);
+  color: #000;
   text-decoration: none;
+  border-radius: 6px;
   font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
 }
 
-.contact {
-  padding: 40px;
-  text-align: center;
+.project a:hover {
+  background: #00cc66;
+  transform: scale(1.05);
 }
 
+
+.project img {
+  width: 100%;          /* l’image prend la largeur de la carte */
+  max-height: 180px;    /* limite la hauteur */
+  object-fit: cover;    /* recadre l’image sans la déformer */
+  border-radius: 8px;   /* coins arrondis pour le style */
+  margin-bottom: 15px;  /* espace entre l’image et le titre */
+}
+
+
+/* Contact */
+.contact { padding: 40px; text-align: center; }
 .contact h2 {
   color: var(--accent-color, #00ff88);
   font-size: 36px;
   margin-bottom: 20px;
 }
-
 #contact-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  max-width: 500px;
-  margin: 0 auto;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 15px;
+  max-width: 500px; margin: 0 auto;
 }
-
 #contact-form input,
 #contact-form textarea {
-  width: 100%;
-  padding: 12px;
+  width: 100%; padding: 12px;
   border: 1px solid #00ff88;
   border-radius: 5px;
   background: rgba(0,0,0,0.6);
   color: #fff;
 }
-
-body.dark #contact-form input,
-body.dark #contact-form textarea {
-  background: rgba(255,255,255,0.9);
-  color: #222;
-}
-
 #contact-form button {
   background-color: var(--accent-color, #00ff88);
-  border: none;
-  padding: 12px 24px;
-  font-size: 18px;
-  cursor: pointer;
+  border: none; padding: 12px 24px;
+  font-size: 18px; cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s, transform 0.2s;
 }
-
 #contact-form button:hover {
   background-color: #00cc66;
   transform: scale(1.05);
 }
 
-/* Écrans tablettes */
+.mockup {
+  border: 12px solid #111;       /* cadre type écran */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,255,136,0.3);
+}
+.mockup img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* Responsive */
 @media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  .project-list {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-/* Écrans mobiles */
-@media (max-width: 480px) {
-  nav .logo {
-    font-size: 18px;
-  }
-
-  .hero h1 {
-    font-size: 24px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  .hero button {
-    font-size: 16px;
-    padding: 10px 20px;
-  }
-
-  .project {
-    width: 90%;
-  }
-}
-
-/* Burger caché par défaut */
-.burger {
-  display: none;
-  cursor: pointer;
-}
-
-.burger div {
-  width: 25px;
-  height: 3px;
-  background-color: #00ff88;
-  margin: 5px;
-  transition: all 0.3s ease;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
+  nav ul { flex-direction: column; align-items: center; }
+  .hero h1 { font-size: 32px; }
+  .project-list { flex-direction: column; align-items: center; }
   .nav-links {
-    display: none;
-    flex-direction: column;
+    display: none; flex-direction: column;
     background: #111;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 200px;
-    padding: 20px;
+    position: absolute; top: 60px; right: 0;
+    width: 220px; padding: 20px;
+    border-radius: 0 0 10px 10px;
   }
-
   .nav-links.active {
     display: flex;
+    animation: slideIn 0.4s ease forwards;
   }
-
-  .burger {
-    display: block;
-  }
+  .burger { display: block; }
+}
+@media (max-width: 480px) {
+  nav .logo { font-size: 18px; }
+  .hero h1 { font-size: 24px; }
+  .hero p { font-size: 16px; }
+  .hero button { font-size: 16px; padding: 10px 20px; }
+  .project { width: 90%; }
 }
 
+/* Animation menu mobile */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Footer */
 footer {
   background: #111;
   color: #eee;
@@ -350,35 +291,183 @@ footer {
   padding: 20px 0;
   margin-top: 40px;
 }
-
-.footer-container {
-  max-width: 1200px;
-  margin: auto;
-}
-
-.social-links {
-  margin-top: 10px;
-}
-
+.footer-container { max-width: 1200px; margin: auto; }
+.social-links { margin-top: 10px; }
 .social-links a {
   margin: 0 10px;
   display: inline-block;
   transition: transform 0.3s ease, fill 0.3s ease;
 }
+.social-links svg { width: 24px; height: 24px; }
+.social-links a:hover { transform: scale(1.2); }
+.social-links svg:hover { fill: #fff; }
 
+.about {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about h2 {
+  color: var(--accent-color, #00ff88);
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.about-container img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0,255,136,0.3);
+}
+
+.about-text {
+  max-width: 500px;
+  text-align: left;
+  color: #ccc;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.skills {
+  padding: 60px 20px;
+  background: #0a0a0a; /* dark par défaut */
+  color: #eee;
+  text-align: center;
+}
+
+.skills h2 {
+  color: var(--accent-color, #00ff88);
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.timeline {
+  max-width: 800px;
+  margin: auto;
+  position: relative;
+  padding-left: 20px;
+  border-left: 3px solid var(--accent-color, #00ff88);
+}
+
+.timeline-item {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.timeline-item h3 {
+  font-size: 20px;
+  color: var(--accent-color, #00ff88);
+  margin-bottom: 5px;
+}
+
+.timeline-item p {
+  font-size: 16px;
+  color: #ccc; /* texte clair en dark */
+}
+
+/* Variante en mode clair */
+body.light-mode .skills {
+  background: #f9f9f9;
+  color: #333;
+}
+
+body.light-mode .skills h2 {
+  color: #0077cc; /* accent bleu */
+}
+
+body.light-mode .timeline {
+  border-left: 3px solid #0077cc;
+}
+
+body.light-mode .timeline-item h3 {
+  color: #0077cc;
+}
+
+body.light-mode .timeline-item p {
+  color: #333; /* gris foncé lisible */
+}
+
+body.light-mode .timeline-item::before {
+  background: #0077cc;
+  box-shadow: 0 0 10px rgba(0,119,204,0.6);
+}
+
+/* Mode clair - À propos */
+body.dark .about h2 {
+  color: #0077cc; /* accent bleu */
+}
+body.dark .about-text {
+  color: #333; /* gris foncé lisible */
+}
+body.dark .about-container img {
+  box-shadow: 0 8px 20px rgba(0,119,204,0.3);
+}
+
+/* Mode clair - Compétences */
+body.dark .skills {
+  background: #f9f9f9;
+  color: #333;
+}
+body.dark .skills h2 {
+  color: #0077cc;
+}
+body.dark .timeline {
+  border-left: 3px solid #0077cc;
+}
+body.dark .timeline-item h3 {
+  color: #0077cc;
+}
+body.dark .timeline-item p {
+  color: #333;
+}
+body.dark .timeline-item::before {
+  background: #0077cc;
+  box-shadow: 0 0 10px rgba(0,119,204,0.6);
+}
+
+.social-links a {
+  margin: 0 10px;
+  display: inline-block;
+  color: inherit;
+}
 .social-links svg {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
-
-.social-links a:hover {
+.social-links a:hover svg {
   transform: scale(1.2);
+  color: var(--accent-color, #00ff88);
 }
 
-.social-links svg:hover {
-  fill: #fff;
+/* Mode clair */
+body.dark .social-links a:hover svg {
+  color: #0077cc;
+}
+/* Mode clair - Footer */
+body.dark footer {
+  background: #f5f5f5;   /* fond clair */
+  color: #222;           /* texte foncé */
 }
 
+body.dark .social-links svg {
+  color: #444;           /* icônes gris par défaut */
+}
+
+body.dark .social-links a:hover svg {
+  color: #0077cc;        /* accent bleu au hover */
+}
 
 
   </style>
@@ -406,28 +495,70 @@ footer {
     <p>Mon égo est en mode solo leveling (évolution solo).</p>
     <button>Voir mes projets</button>
   </section>
+  
+
+<!-- Section À propos -->
+<section id="about" class="about">
+  <h2>À propos de moi</h2>
+  <div class="about-container">
+    <img src="image/profile.png" alt="Photo de Serigne Fallou Ndiaye" loading="lazy">
+    <div class="about-text">
+      <p>Je suis Serigne Fallou Ndiaye, étudiant en L3 MIC passionné par le développement web et multimédia. 
+      Mon objectif est de créer des projets hybrides qui allient design et code, en utilisant HTML, CSS, JavaScript, React et GSAP.</p>
+      <p>Je construis actuellement mon portfolio pour partager mes réalisations et montrer mon évolution en tant que développeur.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Section Mon parcours de compétences -->
+<section id="skills" class="skills">
+  <h2>Mon parcours de compétences</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>2024</h3>
+      <p>Découverte du HTML & CSS – bases du web.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>2025</h3>
+      <p>JavaScript & Git/GitHub – interactivité et gestion de projets.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>2026</h3>
+      <p>React & GSAP – projets hybrides web + animations.</p>
+    </div>
+  </div>
+</section>
+
 
   <!-- Section Projets -->
-  <section id="projects" class="projects">
-    <h2>Mes Projets</h2>
-    <div class="project-list">
-      <div class="project">
-        <h3>Portfolio Web</h3>
-        <p>Mon premier site en HTML/CSS avec animations GSAP.</p>
-        <a href="https://sf-ndiaye.github.io/sf-ndiaye-s_portfolio" target="_blank">Voir en ligne</a>
-      </div>
-      <div class="project">
-        <h3>Dark/Light Mode</h3>
-        <p>Ajout d'un bouton interactif en JavaScript pour basculer le thème.</p>
-        <a href="https://github.com/sf-ndiaye/sf-ndiaye-s_portfolio" target="_blank">Code GitHub</a>
-      </div>
-      <div class="project">
-        <h3>Design Figma</h3>
-        <p>Prototype UI/UX réalisé sur Figma pour une app mobile.</p>
-        <a href="https://www.figma.com/" target="_blank">Voir le design</a>
-      </div>
+<section id="projects" class="projects">
+  <h2>Mes Projets</h2>
+  <div class="project-list">
+    <div class="project">
+      <img src="image/Dark-mode-portfolio.png" alt="Capture d'écran du site portfolio avec navbar et animations GSAP" loading="lazy">
+      <h3>Portfolio Web</h3>
+      <p>Mon premier site en HTML/CSS avec animations GSAP.</p>
+      <a href="https://sf-ndiaye.github.io/sf-ndiaye-s_portfolio" target="_blank">Voir en ligne</a>
     </div>
-  </section>
+    <div class="project">
+      <div class="mockup"></div>
+      <img src="image/Light-mode-portfolio.png" alt="Capture d'écran du projet Dark/Light mode en JavaScript" loading="lazy">
+      <h3>Dark/Light Mode</h3>
+      <p>Ajout d'un bouton interactif en JavaScript pour basculer le thème.</p>
+      <a href="https://github.com/sf-ndiaye/sf-ndiaye-s_portfolio" target="_blank">Code GitHub</a>
+    </div>
+    <div class="project">
+      <img src="image/UI-UX Wtsp.png" alt="Prototype UI/UX réalisé sur Figma pour une app mobile" loading="lazy">
+      <h3>Design Figma</h3>
+      <p>Prototype UI/UX réalisé sur Figma pour une app mobile.</p>
+      <a href="https://www.figma.com/design/et1RgrzhJT5WwOmOLh7BQD/Interface-WhatsApp?m=auto&t=HivyExcHQUhIuSQi-1" target="_blank">
+  Voir le design
+</a>
+
+    </div>
+  </div>
+</section>
+
 
   <!-- Section Contact -->
   <section id="contact" class="contact">
@@ -495,16 +626,38 @@ footer {
     });
   </script>
 
-  <footer>
-    <div class="footer-container">
-      <p>&copy; 2026 Serigne Fallou Ndiaye. Tous droits réservés.</p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/serigne-fallou-ndiaye-6a2635416/" target="_blank" aria-label="LinkedIn">LinkedIn</a>
-        <a href="https://github.com/sf-ndiaye" target="_blank" aria-label="GitHub">GitHub</a>
-        <a href="mailto:fallou97ndiaye@gmail.com" aria-label="Email">Email</a>
-      </div>
+<footer>
+  <div class="footer-container">
+    <p>&copy; 2026 Serigne Fallou Ndiaye. Tous droits réservés.</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/serigne-fallou-ndiaye-6a2635416/" target="_blank" aria-label="LinkedIn">
+        <!-- Icône LinkedIn -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.05c.53-1 1.82-2.2 3.75-2.2 4 0 4.75 2.63 4.75 6V24h-4v-8.2c0-2-0.03-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.5V24h-4V8z"/>
+        </svg>
+      </a>
+      <a href="https://github.com/sf-ndiaye" target="_blank" aria-label="GitHub">
+        <!-- Icône GitHub -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.62-2.8 5.65-5.47 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z"/>
+        </svg>
+      </a>
+      <a href="mailto:fallou97ndiaye@gmail.com" aria-label="Email">
+        <!-- Icône Email -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+      </a>
+      <a href="https://wa.me/221706550489" target="_blank" aria-label="WhatsApp">
+        <!-- Icône WhatsApp -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 2.12.55 4.1 1.52 5.84L0 24l6.29-1.65A11.95 11.95 0 0 0 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm0 22c-1.95 0-3.8-.57-5.39-1.65l-.38-.25-3.73.98.99-3.64-.25-.38A9.94 9.94 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.27-7.73c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.15-.19.29-.74.93-.91 1.12-.17.19-.34.21-.63.07-.29-.15-1.23-.45-2.34-1.43-.86-.77-1.43-1.72-1.6-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.64-1.54-.88-2.11-.23-.55-.47-.47-.64-.48h-.55c-.19 0-.48.07-.74.36-.26.29-1 1-1 2.43s1.02 2.82 1.16 3.01c.14.19 2 3.05 4.84 4.28.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34z"/>
+        </svg>
+      </a>
     </div>
-  </footer>
+  </div>
+</footer>
+
 </body>
 
 </html>
