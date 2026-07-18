@@ -469,6 +469,107 @@ body.dark .social-links a:hover svg {
   color: #0077cc;        /* accent bleu au hover */
 }
 
+/* Section CV */
+.cv-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.cv-section h2 {
+  color: var(--accent-color, #00ff88);
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.cv-section p {
+  color: #ccc;
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+
+.cv-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.cv-card {
+  background: rgba(0,0,0,0.7);
+  padding: 25px;
+  border-radius: 12px;
+  width: 320px;
+  box-shadow: 0 8px 20px rgba(0,255,136,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cv-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,255,136,0.5);
+}
+
+.cv-card h3 {
+  color: #00ff88;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.btn-cv {
+  display: inline-block;
+  margin: 8px;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn-cv.view {
+  background-color: #0073e6; /* bleu pour View */
+  color: #fff;
+}
+
+.btn-cv.download {
+  background-color: #00ff88; /* vert pour Download */
+  color: #000;
+}
+
+.btn-cv:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(0,255,136,0.4);
+}
+
+/* Variante Light Mode */
+body.dark .cv-section h2 {
+  color: #0077cc; /* accent bleu */
+}
+
+body.dark .cv-section p {
+  color: #444;
+}
+
+body.dark .cv-card {
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 8px 20px rgba(0,119,204,0.3);
+}
+
+body.dark .cv-card h3 {
+  color: #0077cc;
+}
+
+body.dark .btn-cv.view {
+  background-color: #0077cc;
+  color: #fff;
+}
+
+body.dark .btn-cv.download {
+  background-color: #00cc66;
+  color: #fff;
+}
+
+body.dark .btn-cv:hover {
+  box-shadow: 0 0 12px rgba(0,119,204,0.4);
+}
 
   </style>
 </head>
@@ -529,6 +630,38 @@ body.dark .social-links a:hover svg {
   </div>
 </section>
 
+<section id="cv" class="cv-section">
+  <h2>📄 My CV</h2>
+  <p>Visualize or download my CV in French or English.</p>
+
+  <div class="cv-container">
+    <!-- Carte CV Français -->
+    <div class="cv-card">
+      <h3>🇫🇷 CV – French Version</h3>
+      <div class="cv-buttons">
+        <a href="docs/SFN-CV-French.pdf" target="_blank" class="btn-cv view">
+          👁️ View
+        </a>
+        <a href="docs/SFN-CV-French.pdf" download class="btn-cv download">
+          ⬇️ Download
+        </a>
+      </div>
+    </div>
+
+    <!-- Carte CV Anglais -->
+    <div class="cv-card">
+      <h3>🇬🇧 CV – English Version</h3>
+      <div class="cv-buttons">
+        <a href="docs/SFN-CV-English.pdf" target="_blank" class="btn-cv view">
+          👁️ View
+        </a>
+        <a href="docs/SFN-CV-English.pdf" download class="btn-cv download">
+          ⬇️ Download
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- Section Projets -->
 <section id="projects" class="projects">
