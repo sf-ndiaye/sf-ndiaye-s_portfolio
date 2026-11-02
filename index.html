@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>Portfolio Serigne Ndiaye – Frontend Developer & Multimédia</title>
-  <meta name="description" content="Portfolio de Serigne Ndiaye, étudiant en L3 MIC spécialisé en développement web, intégration IA et édition vidéo. Découvrez mes projets HTML, CSS, JS, React et CapCut.">
-  <meta name="keywords" content="Frontend Developer, Portfolio, HTML, CSS, JavaScript, React, GSAP, CapCut, Montage Vidéo, IA Web Development">
+  <title>Portfolio Serigne Ndiaye – Frontend Developer</title>
+  <meta name="description" content="Portfolio de Serigne Ndiaye, étudiant en L3 MIC spécialisé en développement web et multimédia. Découvrez mes projets HTML, CSS, JS, React et GSAP.">
+  <meta name="keywords" content="Frontend Developer, Portfolio, HTML, CSS, JavaScript, React, GSAP, Web Design">
   <meta name="author" content="Serigne Ndiaye">
   <style>
     html {
@@ -29,7 +29,7 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Mode sombre inversé (Theme clair) */
+/* Mode sombre inversé */
 body.dark {
   background: linear-gradient(-45deg, #fdfdfd, #f5f5f5, #eaeaea, #fdfdfd);
   color: #222;
@@ -42,17 +42,10 @@ body.dark .hero h1 { color: #0077cc; }
 body.dark .hero p { color: #555; }
 body.dark .hero button { background-color: #0077cc; color: #fff; }
 body.dark .hero button:hover { background-color: #005fa3; }
-body.dark .project, body.dark .video-card { background: rgba(255,255,255,0.8); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-body.dark .project p, body.dark .video-card p { color: #333; }
-body.dark .project h3, body.dark .video-card h3 { color: #0077cc; }
+body.dark .project { background: rgba(255,255,255,0.8); }
+body.dark .project p { color: #333; }
 body.dark #contact-form input,
-body.dark #contact-form textarea { background: rgba(255,255,255,0.9); color: #222; border-color: #0077cc; }
-body.dark #contact-form button { background-color: #0077cc; color: #fff; }
-body.dark #contact-form button:hover { background-color: #005fa3; }
-body.dark .skills, body.dark .videos-section { background: #f5f5f5; color: #222; }
-body.dark .timeline { border-left-color: #0077cc; }
-body.dark .timeline-item h3 { color: #0077cc; }
-body.dark .timeline-item p { color: #555; }
+body.dark #contact-form textarea { background: rgba(255,255,255,0.9); color: #222; }
 
 /* Navbar */
 nav {
@@ -115,18 +108,18 @@ nav ul li button:hover {
   display: flex; flex-direction: column;
   justify-content: center; align-items: center;
   text-align: center;
-  padding: 80px 20px;
+  padding: 40px 20px;
 }
 .hero h1 {
   color: #00ff88;
   font-size: 48px;
-  margin: 0 0 20px 0;
+  margin-bottom: 20px;
   transition: color 0.3s ease;
 }
 .hero p {
   color: #ccc;
   font-size: 20px;
-  margin: 0 0 20px 0;
+  margin-bottom: 20px;
 }
 .hero button {
   background-color: #00ff88;
@@ -143,90 +136,24 @@ nav ul li button:hover {
   box-shadow: 0 0 15px rgba(0,255,136,0.6);
 }
 
-/* About Section */
-.about {
-  padding: 60px 20px;
-  text-align: center;
-}
-.about h2 {
-  color: var(--accent-color, #00ff88);
-  font-size: 36px;
-  margin-bottom: 40px;
-}
-.about-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  max-width: 900px;
-  margin: auto;
-}
-.about-container img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 8px 20px rgba(0,255,136,0.3);
-}
-.about-text {
-  max-width: 500px;
-  text-align: left;
-  color: #ccc;
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-/* Skills Section & Timeline */
-.skills {
-  padding: 60px 20px;
-  background: #0a0a0a;
-  color: #eee;
-  text-align: center;
-}
-.skills h2 {
-  color: var(--accent-color, #00ff88);
-  font-size: 36px;
-  margin-bottom: 40px;
-}
-.timeline {
-  max-width: 800px;
-  margin: auto;
-  position: relative;
-  padding-left: 20px;
-  border-left: 3px solid var(--accent-color, #00ff88);
-  text-align: left;
-}
-.timeline-item {
-  margin-bottom: 30px;
-  position: relative;
-}
-.timeline-item h3 {
-  font-size: 20px;
-  color: var(--accent-color, #00ff88);
-  margin: 0 0 5px 0;
-}
-.timeline-item p {
-  color: #ccc;
-  margin: 0;
-  font-size: 16px;
-}
-
-/* Projects Section */
+/* Projects */
 .projects {
   padding: 60px 20px;
   text-align: center;
 }
+
 .projects h2 {
   color: var(--accent-color, #00ff88);
   font-size: 36px;
   margin-bottom: 40px;
 }
+
 .project-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
 }
+
 .project {
   background: rgba(0,0,0,0.6);
   padding: 25px;
@@ -234,20 +161,24 @@ nav ul li button:hover {
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
 }
+
 .project:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 20px rgba(0,255,136,0.3);
 }
+
 .project h3 {
   color: var(--accent-color, #00ff88);
   margin-bottom: 15px;
   font-size: 22px;
 }
+
 .project p {
   color: #ccc;
   margin-bottom: 15px;
   font-size: 16px;
 }
+
 .project a {
   display: inline-block;
   margin-top: 10px;
@@ -259,62 +190,23 @@ nav ul li button:hover {
   font-weight: bold;
   transition: background 0.3s, transform 0.2s;
 }
+
 .project a:hover {
   background: #00cc66;
   transform: scale(1.05);
 }
+
+
 .project img {
-  width: 100%;
-  max-height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  width: 100%;          /* l’image prend la largeur de la carte */
+  max-height: 180px;    /* limite la hauteur */
+  object-fit: cover;    /* recadre l’image sans la déformer */
+  border-radius: 8px;   /* coins arrondis pour le style */
+  margin-bottom: 15px;  /* espace entre l’image et le titre */
 }
 
-/* Videos / CapCut Section */
-.videos-section {
-  padding: 60px 20px;
-  background: #0a0a0a;
-  text-align: center;
-}
-.videos-section h2 {
-  color: var(--accent-color, #00ff88);
-  font-size: 36px;
-  margin-bottom: 20px;
-}
-.videos-section .intro-video {
-  max-width: 700px;
-  margin: 0 auto 40px auto;
-  color: #ccc;
-  font-size: 18px;
-  line-height: 1.6;
-}
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-.video-card {
-  background: rgba(0,0,0,0.6);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  text-align: center;
-}
-.video-card h3 {
-  color: #00ff88;
-  margin-bottom: 15px;
-  font-size: 20px;
-}
-.video-card p {
-  color: #ccc;
-  font-size: 15px;
-  margin-top: 12px;
-}
 
-/* Contact Section */
+/* Contact */
 .contact { padding: 40px; text-align: center; }
 .contact h2 {
   color: var(--accent-color, #00ff88);
@@ -347,7 +239,7 @@ nav ul li button:hover {
 }
 
 .mockup {
-  border: 12px solid #111;
+  border: 12px solid #111;       /* cadre type écran */
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0,255,136,0.3);
@@ -358,11 +250,12 @@ nav ul li button:hover {
   display: block;
 }
 
+
 /* Responsive */
 @media (max-width: 768px) {
   nav ul { flex-direction: column; align-items: center; }
   .hero h1 { font-size: 32px; }
-  .project-list, .video-grid { grid-template-columns: 1fr; }
+  .project-list { flex-direction: column; align-items: center; }
   .nav-links {
     display: none; flex-direction: column;
     background: #111;
@@ -381,9 +274,10 @@ nav ul li button:hover {
   .hero h1 { font-size: 24px; }
   .hero p { font-size: 16px; }
   .hero button { font-size: 16px; padding: 10px 20px; }
-  .project, .video-card { width: 90%; margin: 0 auto; }
+  .project { width: 90%; }
 }
 
+/* Animation menu mobile */
 @keyframes slideIn {
   from { transform: translateX(100%); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
@@ -398,29 +292,79 @@ footer {
   margin-top: 40px;
 }
 .footer-container { max-width: 1200px; margin: auto; }
-  </style>
-</head>
-<body>
+.social-links { margin-top: 10px; }
+.social-links a {
+  margin: 0 10px;
+  display: inline-block;
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+.social-links svg { width: 24px; height: 24px; }
+.social-links a:hover { transform: scale(1.2); }
+.social-links svg:hover { fill: #fff; }
 
-  <!-- Navbar -->
-  <nav>
-    <div class="logo">Serigne Ndiaye</div>
-    <div class="burger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#about">À propos</a></li>
-      <li><a href="#skills">Parcours</a></li>
-      <li><a href="#projects">Projets Web</a></li>
-      <li><a href="#videos">Créations Vidéo</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><button onclick="document.body.classList.toggle('dark')">🌙/☀</button></li>
-    </ul>
-  </nav>
+.about {
+  padding: 60px 20px;
+  text-align: center;
+}
 
-  <!-- Hero -->
-  <header class="hero">
-    <h1>Salut, je suis Serigne Fallou Ndiaye</h1>
-    <p>Étudiant MIC en 3ème année. Je code, j'intègre l'IA et je crée du contenu multimédia.</p>
+.about h2 {
+  color: var(--accent-color, #00ff88);
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.about-container img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0,255,136,0.3);
+}
+
+.about-text {
+  max-width: 500px;
+  text-align: left;
+  color: #ccc;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.skills {
+  padding: 60px 20px;
+  background: #0a0a0a; /* dark par défaut */
+  color: #eee;
+  text-align: center;
+}
+
+.skills h2 {
+  color: var(--accent-color, #00ff88);
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.timeline {
+  max-width: 800px;
+  margin: auto;
+  position: relative;
+  padding-left: 20px;
+  border-left: 3px solid var(--accent-color, #00ff88);
+}
+
+.timeline-item {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.timeline-item h3 {
+  font-size: 20px;
+  color: var(--accent-co
